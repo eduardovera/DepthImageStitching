@@ -1,12 +1,12 @@
 #include <iostream>
-#include <dlib/matrix.h>
+#include <point.h>
 #include <limits>
 #include <utils.h>
 
 using namespace std;
 using namespace dlib;
 
-void get_homography(std::vector<matrix<double, 1, 4>> &P, std::vector<matrix<double, 1, 4>> &P_, matrix<double, 4, 4> &H) {
+void get_homography(std::vector<Point> &P, std::vector<Point> &P_, matrix<double, 4, 4> &H) {
     matrix<double, 24, 16> A;
     A = zeros_matrix(A);
 
@@ -71,6 +71,8 @@ void get_homography(std::vector<matrix<double, 1, 4>> &P, std::vector<matrix<dou
     }
 
     H = getNullSpaceVector(A, RIGHT_NULL_SPACE_VECTOR);
+    H = reshape(H, 4, 4);
+
 
 }
 

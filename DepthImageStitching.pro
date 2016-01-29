@@ -9,5 +9,6 @@ SOURCES += main.cpp
 
 HEADERS += \
     stitcher.h \
-    utils.h
+    utils.h \
+    point.h
 
